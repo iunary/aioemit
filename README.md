@@ -1,3 +1,5 @@
+[![aioemit](https://github.com/iunary/aioemit/actions/workflows/app.yml/badge.svg)](https://github.com/iunary/aioemit/actions/workflows/app.yml)
+
 # aioemit
 
 aioemit allows you to manage events asynchonosly and notify subscribers when those events occur. It provides a simple way to implement event bus pattern in an event driven architecture application.
