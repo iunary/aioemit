@@ -1,9 +1,11 @@
 import asyncio
 from collections import defaultdict
-from typing import Any, Callable, Dict, List, Optional
+from typing import Any, Callable, Coroutine, Dict, List, Optional
 
 
 class Event:
+    """Event class"""
+
     def __init__(self, event_type: str, data: Optional[Any]):
         """
         An event with a specified event type and optional data.
@@ -26,13 +28,19 @@ class Event:
 
 
 class Emitter:
+    """Emitter class"""
+
     def __init__(self) -> None:
         """
         An event emitter that allows subscribing to and emitting events.
         """
-        self.subscribers: Dict[str, List[Callable[[Event], None]]] = defaultdict(list)
+        self.subscribers: Dict[
+            str, List[Callable[[Event], Coroutine[Any, Any, Any]]]
+        ] = defaultdict(list)
 
-    def subscribe(self, event_type: str, observer: Callable[[Event], None]):
+    def subscribe(
+        self, event_type: str, observer: Callable[[Event], Coroutine[Any, Any, Any]]
+    ):
         """
         Subscribes an observer function to a specific event type.
 
@@ -42,7 +50,9 @@ class Emitter:
         """
         self.subscribers[event_type].append(observer)
 
-    def unsubscribe(self, event_type: str, observer: Callable[[Event], None]):
+    def unsubscribe(
+        self, event_type: str, observer: Callable[[Event], Coroutine[Any, Any, Any]]
+    ):
         """
         Unsubscribes an observer function from a specific event type.
 

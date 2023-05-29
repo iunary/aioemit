@@ -16,6 +16,7 @@ setup(
     license=license,
     author_email="contact@yusuf.im",
     long_description=long_description,
+    long_description_content_type="text/markdown",
     packages=find_packages(),
     install_requires=[],
     keywords=[
@@ -26,6 +27,7 @@ setup(
         "subscribe",
         "emit",
         "publish",
+        "aioemit",
     ],
     classifiers=[
         "Development Status :: 5 - Production/Stable",
